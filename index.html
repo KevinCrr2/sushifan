@@ -1,0 +1,810 @@
+<!DOCTYPE html><html class="dark" lang="es"><head><meta charset="utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"><meta content="mobile_tab" name="shell-type"><link href="https://fonts.googleapis.com" rel="preconnect"><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"><link href="https://fonts.googleapis.com/css2?family=Outfit:wght@600;700&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"><style>@layer base{html,body{width:100vw;margin:0;padding:0;background-color:#131313;}body{overscroll-behavior:none;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script><script id="tailwind-config">tailwind.config = { darkMode: 'class', theme: { extend: { colors: { 'inverse-primary': '#bb171c', 'primary': '#ffb4ac', 'tertiary-fixed-dim': '#3de273', 'primary-container': '#ff544c', 'surface-variant': '#353534', 'on-secondary-container': '#ff9a8e', 'tertiary': '#3de273', 'secondary-container': '#8b1a16', 'surface': '#131313', 'surface-dim': '#131313', 'on-surface-variant': '#e4beb9', 'on-secondary-fixed-variant': '#8b1a16', 'on-tertiary': '#003915', 'on-tertiary-container': '#003111', 'on-secondary-fixed': '#410001', 'on-tertiary-fixed-variant': '#005322', 'surface-tint': '#ffb4ac', 'surface-container-lowest': '#0e0e0e', 'inverse-surface': '#e5e2e1', 'on-tertiary-fixed': '#002109', 'primary-fixed': '#ffdad6', 'background': '#131313', 'on-primary-container': '#5c0005', 'secondary-fixed-dim': '#ffb4aa', 'on-primary-fixed': '#410002', 'on-surface': '#e5e2e1', 'tertiary-container': '#00a74c', 'outline': '#ab8985', 'surface-container': '#201f1f', 'primary-fixed-dim': '#ffb4ac', 'surface-container-high': '#2a2a2a', 'on-error-container': '#ffdad6', 'on-secondary': '#690004', 'error': '#ffb4ab', 'on-primary-fixed-variant': '#93000d', 'tertiary-fixed': '#66ff8e', 'on-background': '#e5e2e1', 'error-container': '#93000a', 'on-primary': '#690006', 'surface-container-low': '#1c1b1b', 'surface-container-highest': '#353534', 'surface-bright': '#393939', 'inverse-on-surface': '#313030', 'secondary-fixed': '#ffdad5', 'outline-variant': '#5b403d', 'secondary': '#ffb4aa', 'on-error': '#690005' }, borderRadius: { 'DEFAULT': '0.25rem', 'lg': '0.5rem', 'xl': '0.75rem', 'full': '9999px' }, spacing: { 'space-sm': '0.5rem', 'gutter-desktop': '1.5rem', 'margin-desktop': '2.5rem', 'gutter': '1rem', 'space-xl': '2rem', 'margin': '1rem', 'space-md': '0.75rem', 'space-xs': '0.25rem', 'space-lg': '1.25rem' }, fontFamily: { 'body-lg': ['Plus Jakarta Sans'], 'headline-lg': ['Outfit'], 'body-sm': ['Plus Jakarta Sans'], 'label-md': ['Plus Jakarta Sans'], 'headline-md': ['Outfit'], 'label-sm': ['Plus Jakarta Sans'], 'display-lg': ['Outfit'], 'display-mobile': ['Outfit'], 'price-tag': ['Outfit'], 'label-lg': ['Plus Jakarta Sans'], 'headline-sm': ['Outfit'], 'body-md': ['Plus Jakarta Sans'] }, fontSize: { 'body-lg': ['16px', { lineHeight: '24px', fontWeight: '400' }], 'headline-lg': ['26px', { lineHeight: '32px', letterSpacing: '-0.01em', fontWeight: '600' }], 'body-sm': ['12px', { lineHeight: '16px', fontWeight: '400' }], 'label-md': ['12px', { lineHeight: '16px', letterSpacing: '0.04em', fontWeight: '600' }], 'headline-md': ['20px', { lineHeight: '26px', fontWeight: '600' }], 'label-sm': ['10px', { lineHeight: '12px', letterSpacing: '0.08em', fontWeight: '700' }], 'display-lg': ['40px', { lineHeight: '48px', letterSpacing: '-0.02em', fontWeight: '700' }], 'display-mobile': ['30px', { lineHeight: '36px', letterSpacing: '-0.01em', fontWeight: '700' }], 'price-tag': ['18px', { lineHeight: '22px', fontWeight: '700' }], 'label-lg': ['14px', { lineHeight: '18px', letterSpacing: '0.02em', fontWeight: '600' }], 'headline-sm': ['16px', { lineHeight: '22px', fontWeight: '600' }], 'body-md': ['14px', { lineHeight: '20px', fontWeight: '400' }] } } } }</script></head><body class="bg-surface text-on-surface flex flex-col min-h-screen selection:bg-primary selection:text-on-primary"><header class="fixed top-0 w-full z-50 pt-safe bg-surface/85 backdrop-blur-xl shadow-[0_4px_20px_rgba(0,0,0,0.4)]"><div class="h-16 px-gutter flex items-center justify-between gap-space-sm"><div class="flex items-center gap-space-sm min-w-0"><img alt="SushiFan Tandil Logo" class="h-10 w-10 object-contain rounded-full shrink-0 border border-outline-variant/30" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD-4FsFzA1k8iVqUPZD5Ao0rQes_f5-88vfOGON0K3SLwwQR0lSyfHxP66_c3IBlOQ6OfefOfMGmZTMx3hCMxR-MmkYQbrBoWdGI7I1M1eM1664TaKamoOE4qPW1LWZKE7vAIs-1z_n_JRf3okt1Mw91j2Zz77p61ROI11h5KSxXTtNqqcv1NNC-y3R_2hUuKVaMob2mdqaCMUXjdFcq8TiH2Fz9I1mcBI2_JEDvmj3pjDsZb3sXZQywLxp671P4Kz4FyM"><div class="flex flex-col min-w-0"><span class="font-headline-sm text-headline-sm text-on-surface truncate">SushiFan Tandil</span><div class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-tertiary shrink-0 animate-pulse"></span><span class="font-label-sm text-label-sm text-tertiary truncate uppercase tracking-wider">Cocina Abierta 20 a 00hs</span></div></div></div><div class="flex items-center gap-space-xs shrink-0"><a aria-label="Contacto WhatsApp Directo" class="w-10 h-10 rounded-full bg-surface-container-high hover:bg-surface-container-highest flex items-center justify-center text-tertiary transition-colors" href="https://wa.me/5492284606363" rel="noopener" target="_blank"><span class="material-symbols-outlined text-[20px]">chat</span></a><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center shrink-0"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="flex flex-col relative w-full pt-16 pb-36 bg-surface min-h-screen"><!-- VISTA 1: CARTA / MENÚ -->
+<div class="flex flex-col w-full" id="view-carta">
+<!-- Sub-Header Store Status & Delivery Toggle Pill -->
+<section class="px-gutter pt-space-md pb-space-sm flex flex-col gap-space-sm">
+<div class="flex items-center justify-between bg-surface-container-low p-space-sm rounded-xl border border-outline-variant/20">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-[18px]">location_on</span>
+<span class="font-label-sm text-label-sm text-on-surface uppercase tracking-wider" id="tag-location-status">Tandil Centro • 30-45 min</span>
+</div>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-tertiary text-[16px]">call</span>
+<a class="font-label-sm text-label-sm text-tertiary" href="tel:2284606363">2284 606363</a>
+</div>
+</div>
+<!-- Switch Modalidad: Delivery / Retiro -->
+<div class="grid grid-cols-2 p-1 bg-surface-container-lowest rounded-xl border border-outline-variant/30">
+<button class="py-2 rounded-lg bg-surface-container-high text-primary font-label-md text-label-md flex items-center justify-center gap-1.5 transition-all shadow-sm" id="btn-delivery" onclick="setOrderMode('delivery')" type="button">
+<span class="material-symbols-outlined text-[18px]">moped</span>
+<span class="">Envío Delivery</span>
+</button>
+<button class="py-2 rounded-lg text-on-surface-variant hover:text-on-surface font-label-md text-label-md flex items-center justify-center gap-1.5 transition-all" id="btn-takeaway" onclick="setOrderMode('takeaway')" type="button">
+<span class="material-symbols-outlined text-[18px]">storefront</span>
+<span class="">Take Away (Retiro)</span>
+</button>
+</div>
+</section>
+<!-- Sticky Categories Ribbon Navigation -->
+<nav class="sticky top-16 z-40 bg-surface/95 backdrop-blur-md py-space-xs px-gutter shadow-md border-b border-outline-variant/20">
+<div class="flex items-center gap-space-xs overflow-x-auto no-scrollbar py-1">
+<a class="shrink-0 px-space-md py-1.5 rounded-full bg-primary-container text-on-primary-container font-label-sm text-label-sm shadow-[0_0_12px_rgba(255,84,76,0.3)]" href="#tapeo">Tapeo ($11k)</a>
+<a class="shrink-0 px-space-md py-1.5 rounded-full bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm hover:text-on-surface" href="#entradas">Entradas ($9k)</a>
+<a class="shrink-0 px-space-md py-1.5 rounded-full bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm hover:text-on-surface" href="#rolls">Rolls de Autor</a>
+<a class="shrink-0 px-space-md py-1.5 rounded-full bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm hover:text-on-surface" href="#hot-rolls">Hot Rolls ($20k)</a>
+<a class="shrink-0 px-space-md py-1.5 rounded-full bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm hover:text-on-surface" href="#veggie">Rolls Veggies</a>
+<a class="shrink-0 px-space-md py-1.5 rounded-full bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm hover:text-on-surface" href="#delicatessen">Delicatessen</a>
+</div>
+</nav>
+<!-- Menu Content List -->
+<div class="flex flex-col gap-space-xl px-gutter pt-space-md">
+<!-- SECCIÓN: TAPEO -->
+<section class="flex flex-col gap-space-sm" id="tapeo">
+<div class="flex items-end justify-between">
+<div>
+<span class="font-label-sm text-label-sm text-primary uppercase tracking-widest">Degustación &amp; Bocados</span>
+<h2 class="font-headline-lg text-headline-lg text-on-surface">Tapeo Omakase</h2>
+</div>
+<span class="font-label-md text-label-md px-2.5 py-1 rounded-full bg-secondary-container text-on-secondary-container font-medium">$11.000 c/u</span>
+</div>
+<div class="flex flex-col gap-space-sm">
+<!-- Tapeo Uno -->
+<article class="flex items-center gap-space-md bg-surface-container-low p-space-sm rounded-xl border border-outline-variant/10">
+<img class="w-20 h-20 rounded-lg object-cover shrink-0" data-alt="Bandeja de tapeo sushi nikkei premium con dos piezas de langostinos marinados al limón y dos ebi furai apanados sobre pizarra negra y vajilla japonesa" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAK1dkyoVZlq_NEDgYkAf283IUG-1peSSkJ1JClKv2N9kpVGagssQvYipPrc01NMgQUbfWhnaUlqoS777V3h9fHvxyoot91NJuFOw7nYaDN7ThEaHtde-Ek-AlEUOhZ2dPWfRe_607skhg9muGj-ZXNAyJplO1gRilxTJyTGbE81tsngy732r1NSGc0Ysx_V4dcjnck2LdGf-scyt7XJwc4OPqfSWGZVX-4LlC_M2tsxk6zRCsucssmdA">
+<div class="flex flex-col flex-1 min-w-0">
+<h3 class="font-headline-sm text-headline-sm text-on-surface truncate">Tapeo Uno</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2">2p langostinos limón &amp; jengibre + 2p langostinos ebi furai panko y queso Finlandia.</p>
+<span class="font-price-tag text-price-tag text-primary mt-1">$11.000</span>
+</div>
+<button class="h-10 w-10 rounded-lg bg-surface-container-highest text-primary hover:bg-primary hover:text-on-primary flex items-center justify-center shrink-0 transition-colors shadow-sm active:scale-95" onclick="addToCart('Tapeo Uno', 11000)" type="button">
+<span class="material-symbols-outlined text-[20px]">add</span>
+</button>
+</article>
+<!-- Tapeo Dos -->
+<article class="flex items-center gap-space-md bg-surface-container-low p-space-sm rounded-xl border border-outline-variant/10">
+<img class="w-20 h-20 rounded-lg object-cover shrink-0" data-alt="Selección de sushi roll salmón fresco con queso crema finlandia y salmón ahumado con flores comestibles en loza oscura" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCS6ThL0ljnt7YMrZAygy8NtpxuEXPvYg6RGYUlqBYG1s4QwMq1jGOEHPdKVS06KbqbtZk0hAgPklGZBcKvEAtUynIQiqlzilnO1aHz6zQZB1wCt6vcvaOCZSuy2W_OFRsWDwmGQy_BMHh5cIHxzld8L_2scc1fwfVPP3UNr4wi8A1AqxjD6YQesTFAhK5Z3EDKHr7VFJQirNpVtXc1kT6jxX0fKu0IbBVS6E7onn5949fv8-S0xW0C5w">
+<div class="flex flex-col flex-1 min-w-0">
+<h3 class="font-headline-sm text-headline-sm text-on-surface truncate">Tapeo Dos</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2">2p salmón rosado y palta + 2p salmón ahumado patagónico y queso Finlandia.</p>
+<span class="font-price-tag text-price-tag text-primary mt-1">$11.000</span>
+</div>
+<button class="h-10 w-10 rounded-lg bg-surface-container-highest text-primary hover:bg-primary hover:text-on-primary flex items-center justify-center shrink-0 transition-colors shadow-sm active:scale-95" onclick="addToCart('Tapeo Dos', 11000)" type="button">
+<span class="material-symbols-outlined text-[20px]">add</span>
+</button>
+</article>
+<!-- Tapeo Tres -->
+<article class="flex items-center gap-space-md bg-surface-container-low p-space-sm rounded-xl border border-outline-variant/10">
+<img class="w-20 h-20 rounded-lg object-cover shrink-0" data-alt="Piezas de uramaki kanikama suave palta madura y queso con sésamo negro en barra de sushi tenue" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD38cNIr-iFIh2c8sdAKI2CgGyaVwKDeTB6hme0GPHj41I5WhSUnOkhgKX13L5ZnsDvUNXYMVwxkX0HxuUy87SvBh01Iv7aw_082WRnueisV5Id9RUllBmezSKM56vFStW14lXCHxFbXCwkVsiF0OPyopXDm93A1cpCPHAHaXdQ495CBdIpc48VU8ACSkB96r24uTodVJu_j35EY-VKuJdZeG_LT_Z9rjyyfFsd8iw8C7K0VANQUXGdtw">
+<div class="flex flex-col flex-1 min-w-0">
+<h3 class="font-headline-sm text-headline-sm text-on-surface truncate">Tapeo Tres</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2">2p kanikama y palta hass + 2p kanikama y queso Finlandia con sésamo tostado.</p>
+<span class="font-price-tag text-price-tag text-primary mt-1">$11.000</span>
+</div>
+<button class="h-10 w-10 rounded-lg bg-surface-container-highest text-primary hover:bg-primary hover:text-on-primary flex items-center justify-center shrink-0 transition-colors shadow-sm active:scale-95" onclick="addToCart('Tapeo Tres', 11000)" type="button">
+<span class="material-symbols-outlined text-[20px]">add</span>
+</button>
+</article>
+<!-- Tapeo Cuatro -->
+<article class="flex items-center gap-space-md bg-surface-container-low p-space-sm rounded-xl border border-outline-variant/10">
+<img class="w-20 h-20 rounded-lg object-cover shrink-0" data-alt="Arrolladitos primavera dorados y crujientes rellenos de carne y vegetales sobre piedra negra con salsa agridulce" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDug1kjC3VJABAqTGUC7a7knSE7dmTz526vBS1xEO1tlCONEVNMp8NeZJlDgrG4cinP4eZipJ63hrE6nGd2KNJhu2LLRIefFPS4QPPAuTH35dCtlvylb8obDNdgzbBEJ1XkBNsQBLsM1OhzUjWhi-jQVwORu86z2J40H68t3vrd4IfcG_w8tNQNvhggm_I7M2HD4gXeC4Oey5d3YGcijfTrqvDy2S5oGgdBTwyq4Z6NyAokEggemQKqOw">
+<div class="flex flex-col flex-1 min-w-0">
+<h3 class="font-headline-sm text-headline-sm text-on-surface truncate">Tapeo Cuatro</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2">2 arrolladitos primavera crocantes, rellenos de carne vacuna, cebolla de verdeo y zanahoria.</p>
+<span class="font-price-tag text-price-tag text-primary mt-1">$11.000</span>
+</div>
+<button class="h-10 w-10 rounded-lg bg-surface-container-highest text-primary hover:bg-primary hover:text-on-primary flex items-center justify-center shrink-0 transition-colors shadow-sm active:scale-95" onclick="addToCart('Tapeo Cuatro', 11000)" type="button">
+<span class="material-symbols-outlined text-[20px]">add</span>
+</button>
+</article>
+<!-- Tapeo Cinco -->
+<article class="flex items-center gap-space-md bg-surface-container-low p-space-sm rounded-xl border border-outline-variant/10">
+<img class="w-20 h-20 rounded-lg object-cover shrink-0" data-alt="Cuenco de vidrio con tiraditos de salmón fresco láminas finas bañado en salsa de maracuyá y batatas crocantes doradas" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBJqXBiFXSBmbeDj6KX0r26FkxeSmlbbZO2kRrBxWsI6T0LXVXz2B_JooBrJYc7_krAgdmgkWrvMKOd6zXz3P7bAHx93Y3AQRrxbWTlFSNMmZ6uTZcwaD5OSKZkf_9brb3msdr-TM-HgAOVmrCO9zOtAkNAOV8TnnIIe7A5l_y8EsJpCXyVnf-ZCfD7blAvALoDsS76nSBdx1JdNBgy8Oct-3h5EvYmQtNCVIiAEIBT0F49QIQ-yQzvnQ">
+<div class="flex flex-col flex-1 min-w-0">
+<div class="flex items-center gap-1">
+<span class="font-headline-sm text-headline-sm text-on-surface truncate">Tapeo Cinco</span>
+<span class="text-[10px] px-1.5 py-0.5 rounded bg-secondary-container text-on-secondary-container font-bold uppercase">Fav</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2">4 tiraditos finos de salmón fresco con salsa de maracuyá y corona de crocantes batatas.</p>
+<span class="font-price-tag text-price-tag text-primary mt-1">$11.000</span>
+</div>
+<button class="h-10 w-10 rounded-lg bg-surface-container-highest text-primary hover:bg-primary hover:text-on-primary flex items-center justify-center shrink-0 transition-colors shadow-sm active:scale-95" onclick="addToCart('Tapeo Cinco', 11000)" type="button">
+<span class="material-symbols-outlined text-[20px]">add</span>
+</button>
+</article>
+</div>
+</section>
+<!-- SECCIÓN: ENTRADAS -->
+<section class="flex flex-col gap-space-sm" id="entradas">
+<div class="flex items-end justify-between">
+<div>
+<span class="font-label-sm text-label-sm text-primary uppercase tracking-widest">Para Empezar</span>
+<h2 class="font-headline-lg text-headline-lg text-on-surface">Entradas Calientes y Frías</h2>
+</div>
+<span class="font-label-md text-label-md px-2.5 py-1 rounded-full bg-surface-container-high text-on-surface-variant font-medium">$9.000 c/u</span>
+</div>
+<div class="grid grid-cols-1 gap-space-sm">
+<!-- Entrada 1 -->
+<div class="bg-surface-container-low p-space-md rounded-xl flex items-center justify-between border border-outline-variant/10">
+<div class="flex flex-col max-w-[65%]">
+<span class="font-label-sm text-label-sm text-primary uppercase">Entrada 1</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Tiraditos Nikkei &amp; Sriracha</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">4 tiraditos de salmón, reducción maracuyá, batatas y toque sriracha.</p>
+<span class="font-price-tag text-price-tag text-on-surface mt-1.5">$9.000</span>
+</div>
+<button class="h-10 px-space-md rounded-lg bg-primary-container text-on-primary-container font-label-md text-label-md flex items-center justify-center gap-1 shadow-sm active:scale-95" onclick="addToCart('Entrada 1: Tiraditos Nikkei', 9000)" type="button">
+<span class="material-symbols-outlined text-[18px]">add_shopping_cart</span>
+<span class="">Pedir</span>
+</button>
+</div>
+<!-- Entrada 2 -->
+<div class="bg-surface-container-low p-space-md rounded-xl flex items-center justify-between border border-outline-variant/10">
+<div class="flex flex-col max-w-[65%]">
+<span class="font-label-sm text-label-sm text-primary uppercase">Entrada 2</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Arrolladitos Primavera</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">2 unidades crujientes con dip agridulce casero y vegetales glaseados.</p>
+<span class="font-price-tag text-price-tag text-on-surface mt-1.5">$9.000</span>
+</div>
+<button class="h-10 px-space-md rounded-lg bg-surface-container-highest text-primary hover:bg-primary-container hover:text-on-primary-container font-label-md text-label-md flex items-center justify-center gap-1 transition-colors active:scale-95" onclick="addToCart('Entrada 2: Arrolladitos Primavera', 9000)" type="button">
+<span class="material-symbols-outlined text-[18px]">add_shopping_cart</span>
+<span class="">Pedir</span>
+</button>
+</div>
+<!-- Entrada 3 -->
+<div class="bg-surface-container-low p-space-md rounded-xl flex items-center justify-between border border-outline-variant/10">
+<div class="flex flex-col max-w-[65%]">
+<span class="font-label-sm text-label-sm text-primary uppercase">Entrada 3</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Langostinos Ebi Furai</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">4 langostinos enteros apanados en panko dorado con salsa tártara nikkei.</p>
+<span class="font-price-tag text-price-tag text-on-surface mt-1.5">$9.000</span>
+</div>
+<button class="h-10 px-space-md rounded-lg bg-surface-container-highest text-primary hover:bg-primary-container hover:text-on-primary-container font-label-md text-label-md flex items-center justify-center gap-1 transition-colors active:scale-95" onclick="addToCart('Entrada 3: Ebi Furai', 9000)" type="button">
+<span class="material-symbols-outlined text-[18px]">add_shopping_cart</span>
+<span class="">Pedir</span>
+</button>
+</div>
+</div>
+</section>
+<!-- SECCIÓN: ROLLS DE AUTOR -->
+<section class="flex flex-col gap-space-sm" id="rolls">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-primary uppercase tracking-widest">Especialidades Nikkei</span>
+<h2 class="font-headline-lg text-headline-lg text-on-surface">Rolls de Autor</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Selecciona tamaño de porción (4 piezas o tabla de 8 piezas).</p>
+</div>
+<div class="flex flex-col gap-space-sm">
+<!-- Roll 1 -->
+<article class="bg-surface-container-low p-space-sm rounded-xl flex flex-col gap-space-xs border border-outline-variant/10">
+<div class="flex items-center gap-space-sm">
+<img class="w-16 h-16 rounded-lg object-cover shrink-0" data-alt="Sushi roll con langostinos marinados al vino tinto decorado con cebollas caramelizadas y toque rojo sriracha" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDKMH-8RXkCtHdLQHwdoytmi5iHinPwCSW9t7OvxqCGN8FqabdkvnAW27iL5YKc6yH9pWnDiwKx0CMXl7tQ7aKPRL6x6K98DnAPnTsk-5_IAu3vLnQmbj5_sKjdFL5IsiEUR7_YtbwrKW8LPi0DQsVqg2C_XtUId4GDxGUSqe-NmBonzgo63kvfWN8WwVTI5x9MIB60xVp-W4Ftfj_DzwwxKqNfX0nxmYB9f6rXn570L9B_Hr2-0BH5dw">
+<div class="flex flex-col flex-1 min-w-0">
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Roll 1: Cebollas al Malbec</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2">Langostinos marinados en limón, jengibre y ajo, queso. Corona de cebollas caramelizadas en vino tinto y lactonesa de sriracha.</p>
+</div>
+</div>
+<div class="flex items-center justify-between pt-1">
+<div class="flex items-center gap-2">
+<button class="px-3 py-1.5 rounded-lg bg-surface-container-high text-on-surface font-label-sm text-label-sm hover:bg-secondary-container hover:text-on-secondary-container transition-colors active:scale-95" onclick="addToCart('Roll 1 Cebollas Malbec (4P)', 9500)" type="button">4P • $9.500</button>
+<button class="px-3 py-1.5 rounded-lg bg-surface-container-highest text-primary font-label-sm text-label-sm hover:bg-primary hover:text-on-primary transition-colors active:scale-95" onclick="addToCart('Roll 1 Cebollas Malbec (8P)', 18500)" type="button">8P • $18.500</button>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">8 piezas recomendadas</span>
+</div>
+</article>
+<!-- Roll 2 -->
+<article class="bg-surface-container-low p-space-sm rounded-xl flex flex-col gap-space-xs border border-outline-variant/10">
+<div class="flex items-center gap-space-sm">
+<img class="w-16 h-16 rounded-lg object-cover shrink-0" data-alt="Exquisito roll de sushi langostinos ebi furai cubierto con finas hebras de batata dorada frita y salsa dulce de maracuyá" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBYZyGyPeGZHandCuIKigOy3o_Cn5zG3DhYQDVAVVZVfdZsLYYyLsw6B72iqbtS6bCpsa22op6gM99zENbTCDAhm28U4zg688dHwwdMeJpckMSRJTs7RsbmL0Jvn_2qaif0rgftU8fMQhKP7BV2O7zV_qV47yJklMnzBg2nSjtFQcy6gJGCf-YRVUHxPDxX-Tb5ubEyNf4heANeUyihaJsOWqdiEr1-6yxRC0VkTfOA9mcDvSU1LHbqSw">
+<div class="flex flex-col flex-1 min-w-0">
+<div class="flex items-center gap-1.5">
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Roll 2: Batata Crunch</h3>
+<span class="text-[9px] uppercase px-1.5 py-0.5 rounded bg-primary text-on-primary font-bold">Top 1</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2">Langostinos Ebi Furai y queso Finlandia. Altura generosa de salmón fresco, batatas fritas crocantes e hilos de salsa maracuyá.</p>
+</div>
+</div>
+<div class="flex items-center justify-between pt-1">
+<div class="flex items-center gap-2">
+<button class="px-3 py-1.5 rounded-lg bg-surface-container-high text-on-surface font-label-sm text-label-sm hover:bg-secondary-container transition-colors active:scale-95" onclick="addToCart('Roll 2 Batata Crunch (4P)', 10000)" type="button">4P • $10.000</button>
+<button class="px-3 py-1.5 rounded-lg bg-surface-container-highest text-primary font-label-sm text-label-sm hover:bg-primary hover:text-on-primary transition-colors active:scale-95" onclick="addToCart('Roll 2 Batata Crunch (8P)', 20000)" type="button">8P • $20.000</button>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Favorito de la casa</span>
+</div>
+</article>
+<!-- Roll 3 -->
+<article class="bg-surface-container-low p-space-sm rounded-xl flex flex-col gap-space-xs border border-outline-variant/10">
+<div class="flex items-center gap-space-sm">
+<img class="w-16 h-16 rounded-lg object-cover shrink-0" data-alt="Sushi roll coronado con guacamole cremoso verde brillante y salmón rosado en presentación gourmet" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCvZyz8HJiB-gpMAnjlBSVsArZx127pNbkWBlC9dxZxB72DkI430BxXkxVQavNyAdQWdtn07Vb47-yL89pfYV1qotL1GTlTf7of9EibvAwDiyJt6jy-XDCG9xFHjypffpL6QMS9mGzIu3Lg2KRlQSm63hdhou31I1TMeFduCYyBm2i4Vf5orPw4ggid0wVoRB7Wk8AYzLtcAZQn90J8RE0vWApjlS3LMu_5UbeXSGRnqeWST_EEbdSrww">
+<div class="flex flex-col flex-1 min-w-0">
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Roll 3: Salmón &amp; Guacamole</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2">Salmón rosado y queso Finlandia con fresco topping de guacamole casero de palta hass y lima.</p>
+</div>
+</div>
+<div class="flex items-center justify-between pt-1">
+<div class="flex items-center gap-2">
+<button class="px-3 py-1.5 rounded-lg bg-surface-container-high text-on-surface font-label-sm text-label-sm hover:bg-secondary-container transition-colors active:scale-95" onclick="addToCart('Roll 3 Salmón Guacamole (4P)', 10000)" type="button">4P • $10.000</button>
+<button class="px-3 py-1.5 rounded-lg bg-surface-container-highest text-primary font-label-sm text-label-sm hover:bg-primary hover:text-on-primary transition-colors active:scale-95" onclick="addToCart('Roll 3 Salmón Guacamole (8P)', 20000)" type="button">8P • $20.000</button>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Cítrico &amp; Cremoso</span>
+</div>
+</article>
+<!-- Roll 4 -->
+<article class="bg-surface-container-low p-space-sm rounded-xl flex flex-col gap-space-xs border border-outline-variant/10">
+<div class="flex items-center gap-space-sm">
+<img class="w-16 h-16 rounded-lg object-cover shrink-0" data-alt="Roll de kanikama decorado con lluvia de maní tostado crocante y líneas de salsa teriyaki espesa" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBXlslhNshRzstwVqjXdiuowpQVSLvKyvDdL0aMg34rICGw3wKeI_0EghJKI-EYvzZm0_HPZpDzQIFeDGFGWzGWvuxQjQrwxL0RuiBzjA9AO6eB07wv10xlZTkMPd8BpbB8ycfHaTT3binac284Z3qq5yHAUv37URQpUoZoMl9m-yYi1Qn5-frMmdZeIuaBjcbIaczJzqsi4H8WWx8S8wIaPy8DYks4Yuydf3i76d9ZcEPgm6ISaF39Eg">
+<div class="flex flex-col flex-1 min-w-0">
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Roll 4: Teriyaki &amp; Crocante</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2">Kanikama y queso Finlandia con una intensa cobertura crocante de maní tostado y reducción de teriyaki artesanal.</p>
+</div>
+</div>
+<div class="flex items-center justify-between pt-1">
+<div class="flex items-center gap-2">
+<button class="px-3 py-1.5 rounded-lg bg-surface-container-high text-on-surface font-label-sm text-label-sm hover:bg-secondary-container transition-colors active:scale-95" onclick="addToCart('Roll 4 Teriyaki (4P)', 9000)" type="button">4P • $9.000</button>
+<button class="px-3 py-1.5 rounded-lg bg-surface-container-highest text-primary font-label-sm text-label-sm hover:bg-primary hover:text-on-primary transition-colors active:scale-95" onclick="addToCart('Roll 4 Teriyaki (8P)', 18000)" type="button">8P • $18.000</button>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Dulce y tostado</span>
+</div>
+</article>
+<!-- Roll 6 -->
+<article class="bg-surface-container-low p-space-sm rounded-xl flex flex-col gap-space-xs border border-outline-variant/10">
+<div class="flex items-center gap-space-sm">
+<img class="w-16 h-16 rounded-lg object-cover shrink-0" data-alt="Tartar de salmón fresco en cubitos condimentado montado sobre maki rolls elegantes de langostino" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBEszKVnuOfp8vs-76bGON55oZA8soGx9yL_TXXXG6eV85oOgbjLf1cVOQc50yG9f_37B53lCTXrKErTFGOX2yTjbWCQ-ymK786GkGJNHaEXW3ScPRWPuxut32hyah_UCe45WiJTsQnwdrWaRJq89L1qilZSKFQu8-l22PHapBPjwvYKU8RrQ8OjpfnfQqdDdkB9oIx3cuwu_j7209p63_VZOlib4uP-KTv8VYdUJNO5ixBujhaMV3Ybw">
+<div class="flex flex-col flex-1 min-w-0">
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Roll 6: Tartar Nikkei</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2">Langostinos furai y marinados, coronados con generoso tartar de salmón rosado y ciboulette.</p>
+</div>
+</div>
+<div class="flex items-center justify-between pt-1">
+<div class="flex items-center gap-2">
+<button class="px-3 py-1.5 rounded-lg bg-surface-container-high text-on-surface font-label-sm text-label-sm hover:bg-secondary-container transition-colors active:scale-95" onclick="addToCart('Roll 6 Tartar Nikkei (4P)', 10000)" type="button">4P • $10.000</button>
+<button class="px-3 py-1.5 rounded-lg bg-surface-container-highest text-primary font-label-sm text-label-sm hover:bg-primary hover:text-on-primary transition-colors active:scale-95" onclick="addToCart('Roll 6 Tartar Nikkei (8P)', 20000)" type="button">8P • $20.000</button>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Textura suave</span>
+</div>
+</article>
+</div>
+</section>
+<!-- SECCIÓN: HOT ROLLS -->
+<section class="flex flex-col gap-space-sm" id="hot-rolls">
+<div class="flex items-end justify-between">
+<div>
+<span class="font-label-sm text-label-sm text-primary uppercase tracking-widest">Fritos y Crocantes</span>
+<h2 class="font-headline-lg text-headline-lg text-on-surface">Hot Rolls al Panko</h2>
+</div>
+<span class="font-label-md text-label-md px-2.5 py-1 rounded-full bg-secondary-container text-on-secondary-container font-medium">8 Piezas • $20.000</span>
+</div>
+<div class="grid grid-cols-1 gap-space-sm">
+<!-- Hot 1 -->
+<div class="bg-surface-container-low p-space-sm rounded-xl flex items-center gap-space-md border border-outline-variant/10">
+<img class="w-20 h-20 rounded-lg object-cover shrink-0" data-alt="Roll caliente rebozado en panko frito crujiente cortado al medio revelando salmón cocido tibio y palta cremosa con salsa agridulce" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAwRofxuCLn3IZfv-NcxiHCbDSgWApZR22DQ93iUb8ccidT_HfwSRRMOiBZD1pvFHGTcU475PB1hEp3MDTZ5Q6a1_TyHUbt1Iykkb_Sn4R2dPUCu5UWQkLmJyeQmkBZlF9y06KuO3AdYnv8OWJ0uDUkItNS_kEhVYtu882uJ6xLVahP2S-JGrRij5l6DPb4qjHIdB3peOYqg8YjvPSKA1piq6r-VXxv4MwrK4enFRR18YwOt89JDGmFLg">
+<div class="flex flex-col flex-1 min-w-0">
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Hot 1: Salmón &amp; Palta</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">8 piezas tibias rebozadas en crocante panko japonés con salmón y palta.</p>
+<span class="font-price-tag text-price-tag text-primary mt-1">$20.000</span>
+</div>
+<button class="h-10 w-10 rounded-lg bg-surface-container-highest text-primary hover:bg-primary hover:text-on-primary flex items-center justify-center shrink-0 transition-colors shadow-sm active:scale-95" onclick="addToCart('Hot 1 Salmón &amp; Palta (8P)', 20000)" type="button">
+<span class="material-symbols-outlined text-[20px]">add</span>
+</button>
+</div>
+<!-- Hot 2 -->
+<div class="bg-surface-container-low p-space-sm rounded-xl flex items-center gap-space-md border border-outline-variant/10">
+<img class="w-20 h-20 rounded-lg object-cover shrink-0" data-alt="Hot sushi roll relleno de langostinos crocantes fritos con queso y palta dorados al panko servidos en plato blanco" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD7mr87fRyQOHBnmOl5u998McsYk2igrzleMUUbwXzZUeaaCsj-kYTJmDbD30hOzJSj9BfVBsQwedEKGhdSM8AFuFd1Zl7T-8fWzOrFl6umYVzICek0_b4lESfyR97U6tkhk6Cd_7QG2vGN-bGC2lnvVlXagiFiYWJ4J3OMbqsNRKhPXOUnidCPj3bSRH0tRJ3uUSfkY7oLSQax_IF5edSfreT6BjvIk1zfugcoKZoX2JByhiiwdHPIOg">
+<div class="flex flex-col flex-1 min-w-0">
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Hot 2: Langostino Ebi</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">8 piezas tibias de langostino apanado y palta hass con panko dorado.</p>
+<span class="font-price-tag text-price-tag text-primary mt-1">$20.000</span>
+</div>
+<button class="h-10 w-10 rounded-lg bg-surface-container-highest text-primary hover:bg-primary hover:text-on-primary flex items-center justify-center shrink-0 transition-colors shadow-sm active:scale-95" onclick="addToCart('Hot 2 Langostino Ebi (8P)', 20000)" type="button">
+<span class="material-symbols-outlined text-[20px]">add</span>
+</button>
+</div>
+<!-- Hot 3 -->
+<div class="bg-surface-container-low p-space-sm rounded-xl flex items-center gap-space-md border border-outline-variant/10">
+<img class="w-20 h-20 rounded-lg object-cover shrink-0" data-alt="Hot rolls combinados salmón y langostinos en panko crujiente con hilos de salsa unagi" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBhygbBj6pmqofNQ83yX_TtB81F41IOfD42SCyRFxz6svXBw3xqtP4SnBVkIlIhmUenSCepauorkD_LvMz6-f60g3eiMPbShb3aVZx3OJVQXXwrK6iOnGKaxlUSB9NQ1kOVnIlaMHfP91ab7pSTw5noJeg8Zxnh55tgv3Ep2BHfXCLx7tkLNVH5hViPFJgi6LBYWdLh6PAutybMBUxJGjLY55Nupojv6SMdyGlOsfZ6y6oHrXczo5CEcQ">
+<div class="flex flex-col flex-1 min-w-0">
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Hot 3: Mix Especial</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">4p de langostino y palta + 4p de salmón y palta al panko super crocante.</p>
+<span class="font-price-tag text-price-tag text-primary mt-1">$20.000</span>
+</div>
+<button class="h-10 w-10 rounded-lg bg-surface-container-highest text-primary hover:bg-primary hover:text-on-primary flex items-center justify-center shrink-0 transition-colors shadow-sm active:scale-95" onclick="addToCart('Hot 3 Mix Especial (8P)', 20000)" type="button">
+<span class="material-symbols-outlined text-[20px]">add</span>
+</button>
+</div>
+</div>
+</section>
+<!-- SECCIÓN: ROLLS VEGGIES -->
+<section class="flex flex-col gap-space-sm" id="veggie">
+<div class="flex items-end justify-between">
+<div>
+<span class="font-label-sm text-label-sm text-tertiary uppercase tracking-widest">Plant-Based / Vegetariano</span>
+<h2 class="font-headline-lg text-headline-lg text-on-surface">Rolls Veggies</h2>
+</div>
+<span class="font-label-md text-label-md px-2.5 py-1 rounded-full bg-surface-container-high text-on-surface-variant font-medium">4P $9k / 8P $18k</span>
+</div>
+<div class="grid grid-cols-1 gap-space-sm">
+<!-- Veggie 1 -->
+<article class="bg-surface-container-low p-space-sm rounded-xl flex items-center justify-between border border-outline-variant/10">
+<div class="flex flex-col max-w-[65%]">
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Veggie 1: Fresco Tandil</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Zanahoria, pepino japonés, palta, queso Finlandia, tamago y salsa Buenos Aires.</p>
+</div>
+<div class="flex flex-col gap-1.5 items-end">
+<button class="px-2.5 py-1 rounded bg-surface-container-high text-on-surface font-label-sm text-label-sm hover:bg-secondary-container active:scale-95" onclick="addToCart('Veggie 1 Fresco Tandil (4P)', 9000)" type="button">4P $9.000</button>
+<button class="px-2.5 py-1 rounded bg-surface-container-highest text-primary font-label-sm text-label-sm hover:bg-primary hover:text-on-primary active:scale-95" onclick="addToCart('Veggie 1 Fresco Tandil (8P)', 18000)" type="button">8P $18.000</button>
+</div>
+</article>
+<!-- Veggie 2 -->
+<article class="bg-surface-container-low p-space-sm rounded-xl flex items-center justify-between border border-outline-variant/10">
+<div class="flex flex-col max-w-[65%]">
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Veggie 2: Topping Remolacha</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Tomate seco hidratado, palta, queso Finlandia, topping de remolacha y wasabi suave.</p>
+</div>
+<div class="flex flex-col gap-1.5 items-end">
+<button class="px-2.5 py-1 rounded bg-surface-container-high text-on-surface font-label-sm text-label-sm hover:bg-secondary-container active:scale-95" onclick="addToCart('Veggie 2 Topping Remolacha (4P)', 9000)" type="button">4P $9.000</button>
+<button class="px-2.5 py-1 rounded bg-surface-container-highest text-primary font-label-sm text-label-sm hover:bg-primary hover:text-on-primary active:scale-95" onclick="addToCart('Veggie 2 Topping Remolacha (8P)', 18000)" type="button">8P $18.000</button>
+</div>
+</article>
+</div>
+</section>
+<!-- SECCIÓN: DELICATESSEN & SASHIMIS -->
+<section class="flex flex-col gap-space-sm" id="delicatessen">
+<div class="flex items-end justify-between">
+<div>
+<span class="font-label-sm text-label-sm text-primary uppercase tracking-widest">Cortes Nobles</span>
+<h2 class="font-headline-lg text-headline-lg text-on-surface">Delicatessen &amp; Sashimis</h2>
+</div>
+</div>
+<div class="grid grid-cols-1 gap-space-sm">
+<!-- Deli 2: Geishas -->
+<div class="flex items-center gap-space-md bg-surface-container-low p-space-sm rounded-xl border border-outline-variant/10">
+<img class="w-16 h-16 rounded-lg object-cover shrink-0" data-alt="Cuatro geishas de salmón rellenas de queso finlandia y palta fresca en plato ceremonial" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBaWiunqPku6KverpuWUPyJYX0Y3OnY_5UVQquxb5qHGQmr-l65YtXBE2KaLxoKj0P8PfUXQYq146TdPCYDb6BCtca1gdTGGp2y5a9xUvtM4ad-ysTogqNK-UZX7Wl7hvqxkgvignbsP041qQVHtMvHuGTibV7NJkGew6rHT49js3Ejb4uJqAdbUV7CUoKIqsfuCgo5jJKFYhMtmeVUaZq9qrAL9hIOmFQs39Ybk6ypFKKvbNgqRFG8LQ">
+<div class="flex flex-col flex-1 min-w-0">
+<h3 class="font-headline-sm text-headline-sm text-on-surface truncate">Delicatessen 2: Geishas</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-1">4 geishas de salmón rosado y suave queso Finlandia.</p>
+<span class="font-price-tag text-price-tag text-primary mt-0.5">$12.000</span>
+</div>
+<button class="h-10 w-10 rounded-lg bg-surface-container-highest text-primary hover:bg-primary hover:text-on-primary flex items-center justify-center shrink-0 transition-colors active:scale-95" onclick="addToCart('Delicatessen 2 Geishas (4P)', 12000)" type="button">
+<span class="material-symbols-outlined text-[20px]">add</span>
+</button>
+</div>
+<!-- Deli 4: Nigiris Flameados -->
+<div class="flex items-center gap-space-md bg-surface-container-low p-space-sm rounded-xl border border-outline-variant/10">
+<img class="w-16 h-16 rounded-lg object-cover shrink-0" data-alt="Nigiris de salmón flambeados al soplete con lámina de lima y salsa teriyaki sobre piedra pizarra" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDqArtskcxJUDH-GCV5smMwwMWrNIdqpqMTgbUUOAYVAFPFkhpIES27VMjypiSSqf9PXo4uv4i2ico-eBccvb0wCtvrzxROLTewkPdEUTdb5CoLrLeQ8lDp7b1G5AwOmzYhEQszLMVpdvxv_D_ONow3KSkHCK1coXbrMyMcRkRuamFEZ4lfqm6m-boA-0fRrPIE1DDqrWpIvtKHjt7DlYNKnkAsFC1NbvtAbqr8Qep21LdP8qTky_K8Pg">
+<div class="flex flex-col flex-1 min-w-0">
+<h3 class="font-headline-sm text-headline-sm text-on-surface truncate">Delicatessen 4: Nigiris Flameados</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-1">4 nigiris flameados con salsa Teriyaki dulce y lima.</p>
+<span class="font-price-tag text-price-tag text-primary mt-0.5">$12.000</span>
+</div>
+<button class="h-10 w-10 rounded-lg bg-surface-container-highest text-primary hover:bg-primary hover:text-on-primary flex items-center justify-center shrink-0 transition-colors active:scale-95" onclick="addToCart('Delicatessen 4 Nigiris Flameados', 12000)" type="button">
+<span class="material-symbols-outlined text-[20px]">add</span>
+</button>
+</div>
+<!-- Deli 6: Sashimis Clásicos -->
+<div class="flex items-center gap-space-md bg-surface-container-low p-space-sm rounded-xl border border-outline-variant/10">
+<img class="w-16 h-16 rounded-lg object-cover shrink-0" data-alt="Láminas gruesas de sashimi de salmón fresco rosado brillante acomodadas sobre hoja de shiso y hielo" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBQFHJV3hABKLgOmGVGIERd9EHjJebBn70dNsA-TIp5rkJtXdcroinTW9GKW_alBoujmeF5rYx1hVvSDru2BwO4dpSjDrzPdSAVCEJ_rPdrmpoyCmAVNsDLboxvdZc_BecCK22UkSG6QfL4wHkA9ZMcBN_koyJ9k2ZS5zc8LVXQaRW4VwJjZGYRxn6HysFHcW3kLpHbNDyGVz7VoKULhealxKa_Ohlstt5ngPvCiht5z5-lq7A9pe-hrA">
+<div class="flex flex-col flex-1 min-w-0">
+<h3 class="font-headline-sm text-headline-sm text-on-surface truncate">Delicatessen 6: Sashimis</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-1">4 cortes gruesos de salmón fresco calidad premium.</p>
+<span class="font-price-tag text-price-tag text-primary mt-0.5">$15.000</span>
+</div>
+<button class="h-10 w-10 rounded-lg bg-surface-container-highest text-primary hover:bg-primary hover:text-on-primary flex items-center justify-center shrink-0 transition-colors active:scale-95" onclick="addToCart('Delicatessen 6 Sashimis (4P)', 15000)" type="button">
+<span class="material-symbols-outlined text-[20px]">add</span>
+</button>
+</div>
+<!-- Deli 7: Sashimis Tatakis -->
+<div class="flex items-center gap-space-md bg-surface-container-low p-space-sm rounded-xl border border-outline-variant/10">
+<img class="w-16 h-16 rounded-lg object-cover shrink-0" data-alt="Sashimi tataki sellado con costra de sésamo y centro crudo tierno decorado con salsa de soja y jengibre" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCY1XnT95cQ8xp02XZArqfbrQzTRMC5X38_yDEmNkoTOILrEd-uL6yH5VQjH9JqpDkHMFxeYrsQGsyodFgbYBZT_q_HSEgyLTBbL5Odsdoau5QLwZDQ6OxHlKUKKiMfDY0YUc1iJO8ZdVipkPHvotqtL258Mb_dnrHgOYFk1Urpj43iyppQbmB5SfaQpRtnotouN6GvO63xbfy7N5ULfRwUs2L_otFtF6GGzjimU4cNpnCyAdR3brfc-A">
+<div class="flex flex-col flex-1 min-w-0">
+<h3 class="font-headline-sm text-headline-sm text-on-surface truncate">Delicatessen 7: Tatakis</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-1">4 sashimis sellados a la llama con sésamo tostado.</p>
+<span class="font-price-tag text-price-tag text-primary mt-0.5">$17.000</span>
+</div>
+<button class="h-10 w-10 rounded-lg bg-surface-container-highest text-primary hover:bg-primary hover:text-on-primary flex items-center justify-center shrink-0 transition-colors active:scale-95" onclick="addToCart('Delicatessen 7 Tatakis (4P)', 17000)" type="button">
+<span class="material-symbols-outlined text-[20px]">add</span>
+</button>
+</div>
+</div>
+</section>
+</div>
+</div>
+<!-- VISTA 2: DETALLE DEL PEDIDO (Comanda completa & Checkout WhatsApp) -->
+<div class="hidden flex flex-col w-full px-gutter pt-space-md" id="view-pedido">
+<div class="flex items-center justify-between pb-space-sm border-b border-outline-variant/30">
+<div>
+<span class="font-label-sm text-label-sm text-primary uppercase tracking-widest">Resumen de Comanda</span>
+<h2 class="font-headline-lg text-headline-lg text-on-surface">Mi Pedido</h2>
+</div>
+<button class="px-3 py-1.5 rounded-lg bg-surface-container-high text-on-surface-variant text-label-sm font-label-sm hover:text-error flex items-center gap-1" onclick="clearCart()" type="button">
+<span class="material-symbols-outlined text-[16px]">delete_sweep</span>
+<span class="">Vaciar</span>
+</button>
+</div>
+<!-- Selector Rápido Modalidad dentro de la pestaña Pedido -->
+<div class="grid grid-cols-2 p-1 bg-surface-container-lowest rounded-xl my-4 border border-outline-variant/30">
+<button class="py-2.5 rounded-lg bg-surface-container-high text-primary font-label-md text-label-md flex items-center justify-center gap-1.5 transition-all shadow-sm" id="cart-mode-delivery" onclick="setOrderMode('delivery')" type="button">
+<span class="material-symbols-outlined text-[18px]">moped</span>
+<span class="">Envío Delivery</span>
+</button>
+<button class="py-2.5 rounded-lg text-on-surface-variant hover:text-on-surface font-label-md text-label-md flex items-center justify-center gap-1.5 transition-all" id="cart-mode-takeaway" onclick="setOrderMode('takeaway')" type="button">
+<span class="material-symbols-outlined text-[18px]">storefront</span>
+<span class="">Take Away (Retiro)</span>
+</button>
+</div>
+<!-- Lista de ítems en carrito -->
+<div class="flex flex-col gap-space-sm mb-6" id="cart-items-container">
+<!-- Se renderiza vía JS -->
+</div>
+<!-- DATOS DEL CLIENTE / FORMULARIO SEGÚN MODALIDAD -->
+<section class="bg-surface-container-low p-space-md rounded-2xl flex flex-col gap- space-md border border-outline-variant/20 shadow-lg mb-6">
+<div class="flex items-center gap-2 text-primary pb-2 border-b border-outline-variant/20">
+<span class="material-symbols-outlined text-[20px]">badge</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Datos de Confirmación</h3>
+</div>
+<div class="flex flex-col gap-3 mt-3">
+<!-- Nombre y Apellido (Obligatorio ambos) -->
+<div>
+<label class="block font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider mb-1" for="customer-name">
+Nombre y Apellido <span class="text-primary">*</span>
+</label>
+<div class="relative">
+<input class="w-full h-11 px-space-md rounded-xl bg-surface-container-highest text-on-surface placeholder:text-outline/70 text-body-md font-body-md outline-none border border-transparent focus:border-primary transition-all" id="customer-name" placeholder="Ej: Valentina Morales" type="text">
+<span class="material-symbols-outlined absolute right-3 top-3 text-outline text-[18px]">person</span>
+</div>
+</div>
+<!-- Teléfono de Contacto (Obligatorio) -->
+<div>
+
+<div class="relative">
+
+<span class="material-symbols-outlined absolute right-3 top-3 text-outline text-[18px]">call</span>
+</div>
+</div>
+<!-- Dirección (Solo si es Delivery) -->
+<div id="field-address-container">
+<label class="block font-label-sm text-label-sm text-primary uppercase tracking-wider mb-1" for="customer-address">
+Dirección en Tandil (calle, n°, piso/depto) <span class="text-primary">*</span>
+</label>
+<div class="relative">
+<input class="w-full h-11 px-space-md rounded-xl bg-surface-container-highest text-on-surface placeholder:text-outline/70 text-body-md font-body-md outline-none border border-transparent focus:border-primary transition-all" id="customer-address" placeholder="Ej: Pinto 640, Depto 2B" type="text">
+<span class="material-symbols-outlined absolute right-3 top-3 text-outline text-[18px]">location_on</span>
+</div>
+</div>
+<!-- Cartel informativo para Take Away -->
+<div class="hidden p-3 rounded-xl bg-surface-container-high border border-tertiary/30 items-start gap-2.5" id="takeaway-info-box">
+<span class="material-symbols-outlined text-tertiary text-[20px] shrink-0 mt-0.5">storefront</span>
+<div class="flex flex-col text-body-sm font-body-sm">
+<span class="font-bold text-on-surface">Punto de Retiro Oficial:</span>
+<span class="text-on-surface-variant">SushiFan Tandil • Centro (Se te notificará por WhatsApp en cuanto el pedido esté listo para retirar).</span>
+</div>
+</div>
+<!-- Método de Pago -->
+<div>
+<label class="block font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider mb-1">
+Método de Pago
+</label>
+<div class="grid grid-cols-2 gap-2">
+<label class="flex items-center gap-2 p-2.5 rounded-xl bg-surface-container-highest cursor-pointer border border-outline-variant/20 has-[:checked]:border-primary has-[:checked]:bg-secondary-container/20">
+<input checked="" class="accent-primary" name="payment-method" type="radio" value="Efectivo">
+<span class="font-label-md text-label-md text-on-surface">Efectivo</span>
+</label>
+<label class="flex items-center gap-2 p-2.5 rounded-xl bg-surface-container-highest cursor-pointer border border-outline-variant/20 has-[:checked]:border-primary has-[:checked]:bg-secondary-container/20">
+<input class="accent-primary" name="payment-method" type="radio" value="Transferencia Bancaria">
+<span class="font-label-md text-label-md text-on-surface">Transferencia</span>
+</label>
+</div>
+</div>
+<!-- Aclaraciones / Preferencias -->
+<div>
+<label class="block font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider mb-1" for="customer-notes">
+Aclaraciones / Preferencias
+</label>
+<input class="w-full h-11 px-space-md rounded-xl bg-surface-container-highest text-on-surface placeholder:text-outline/70 text-body-md font-body-md outline-none border border-transparent focus:border-primary transition-all" id="customer-notes" placeholder="¿Sin wasabi? ¿Palillos extra? ¿Con cuánto abonás?" type="text">
+</div>
+<div class="hidden text-error font-label-sm text-label-sm pt-1" id="form-error-msg"></div>
+</div>
+</section>
+<!-- Resumen Financiero -->
+<div class="p-4 rounded-xl bg-surface-container-lowest border border-outline-variant/30 flex flex-col gap-2 mb-6">
+<div class="flex justify-between text-body-md font-body-md text-on-surface-variant">
+<span class="">Subtotal</span>
+<span id="summary-subtotal" class="">$0</span>
+</div>
+<div class="flex justify-between text-body-md font-body-md text-on-surface-variant">
+<span class="">Modalidad</span>
+<span class="text-tertiary" id="summary-mode">Delivery Tandil</span>
+</div>
+<div class="h-px bg-outline-variant/20 my-1"></div>
+<div class="flex justify-between items-center text-on-surface">
+<span class="font-headline-sm text-headline-sm">Total Final</span>
+<span class="font-display-mobile text-headline-lg text-primary" id="summary-total">$0</span>
+</div>
+</div>
+<!-- Botón Grande de Acción Final -->
+<button class="w-full h-14 rounded-xl bg-tertiary text-on-tertiary hover:bg-tertiary-container font-headline-sm text-headline-sm flex items-center justify-center gap-2 transition-all shadow-[0_4px_24px_rgba(61,226,115,0.3)] active:scale-[0.98] mb-8" onclick="sendOrderViaWhatsApp()" type="button">
+<span class="material-symbols-outlined text-[24px]">send</span>
+<span class="">Enviar Pedido a WhatsApp</span>
+</button>
+</div>
+</main>
+<!-- BARRA INFERIOR DE NAVEGACIÓN (Solo 2 pestañas: Carta y Pedido) -->
+<nav class="fixed bottom-0 w-full z-50 pb-safe bg-surface/90 backdrop-blur-xl shadow-[0_-8px_32px_rgba(0,0,0,0.5)] border-t border-outline-variant/20">
+<div class="max-w-md mx-auto px-gutter pt-space-xs pb-space-sm">
+<!-- Mini Barra flotante de carrito accesible desde Carta -->
+<div class="flex items-center justify-between bg-surface-container-high px-space-md py-space-xs rounded-xl mb-space-xs shadow-inner cursor-pointer border border-outline-variant/15" id="bottom-cart-pill" onclick="switchTab('pedido')">
+<div class="flex items-center gap-space-sm min-w-0">
+<span class="w-8 h-8 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center font-label-md text-label-md shrink-0 font-bold" id="pill-count-badge">0</span>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Ver Mi Comanda</span>
+<span class="font-price-tag text-price-tag text-on-surface" id="pill-total-amount">$0</span>
+</div>
+</div>
+<div class="h-9 px-3 rounded-lg bg-tertiary/20 text-tertiary border border-tertiary/40 font-label-sm text-label-sm flex items-center justify-center gap-1 shrink-0">
+<span class="">Completar</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</div>
+</div>
+<!-- 2 PESTAÑAS EXCLUSIVAS: CARTA Y PEDIDO -->
+<div class="grid grid-cols-2 items-center h-12">
+<button class="flex flex-col items-center justify-center gap-0.5 transition-colors min-h-[44px] text-primary" id="tab-btn-carta" onclick="switchTab('carta')" type="button">
+<span class="material-symbols-outlined text-[24px]">restaurant_menu</span>
+<span class="font-label-sm text-label-sm">Carta</span>
+</button>
+<button class="flex flex-col items-center justify-center gap-0.5 text-on-surface-variant hover:text-on-surface transition-colors min-h-[44px] relative" id="tab-btn-pedido" onclick="switchTab('pedido')" type="button">
+<div class="relative flex items-center justify-center">
+<span class="material-symbols-outlined text-[24px]">receipt_long</span>
+<span class="absolute -top-1.5 -right-3 min-w-[18px] h-[18px] px-1 rounded-full bg-primary-container text-on-primary-container text-[10px] font-bold flex items-center justify-center shadow" id="nav-count-badge">0</span>
+</div>
+<span class="font-label-sm text-label-sm">Pedido</span>
+</button>
+</div>
+</div>
+</nav>
+<script>
+  let cart = [];
+  let orderMode = 'delivery'; // 'delivery' o 'takeaway'
+  let activeTab = 'carta';
+
+  function setOrderMode(mode) {
+    orderMode = mode;
+    const btnDel = document.getElementById('btn-delivery');
+    const btnTake = document.getElementById('btn-takeaway');
+    const cartBtnDel = document.getElementById('cart-mode-delivery');
+    const cartBtnTake = document.getElementById('cart-mode-takeaway');
+    const addressContainer = document.getElementById('field-address-container');
+    const takeawayInfoBox = document.getElementById('takeaway-info-box');
+    const locationStatus = document.getElementById('tag-location-status');
+    const summaryMode = document.getElementById('summary-mode');
+
+    const activeClass = 'py-2 rounded-lg bg-surface-container-high text-primary font-label-md text-label-md flex items-center justify-center gap-1.5 transition-all shadow-sm';
+    const inactiveClass = 'py-2 rounded-lg text-on-surface-variant hover:text-on-surface font-label-md text-label-md flex items-center justify-center gap-1.5 transition-all';
+    
+    const activeCartClass = 'py-2.5 rounded-lg bg-surface-container-high text-primary font-label-md text-label-md flex items-center justify-center gap-1.5 transition-all shadow-sm';
+    const inactiveCartClass = 'py-2.5 rounded-lg text-on-surface-variant hover:text-on-surface font-label-md text-label-md flex items-center justify-center gap-1.5 transition-all';
+
+    if (mode === 'delivery') {
+      if (btnDel) btnDel.className = activeClass;
+      if (btnTake) btnTake.className = inactiveClass;
+      if (cartBtnDel) cartBtnDel.className = activeCartClass;
+      if (cartBtnTake) cartBtnTake.className = inactiveCartClass;
+      if (addressContainer) addressContainer.classList.remove('hidden');
+      if (takeawayInfoBox) takeawayInfoBox.classList.add('hidden');
+      if (locationStatus) locationStatus.textContent = 'Tandil Centro • 30-45 min';
+      if (summaryMode) summaryMode.textContent = 'Envío a Domicilio (Tandil)';
+    } else {
+      if (btnTake) btnTake.className = activeClass;
+      if (btnDel) btnDel.className = inactiveClass;
+      if (cartBtnTake) cartBtnTake.className = activeCartClass;
+      if (cartBtnDel) cartBtnDel.className = inactiveCartClass;
+      if (addressContainer) addressContainer.classList.add('hidden');
+      if (takeawayInfoBox) takeawayInfoBox.classList.remove('hidden');
+      if (locationStatus) locationStatus.textContent = 'Retiro en Local • 20 min';
+      if (summaryMode) summaryMode.textContent = 'Retiro en Local (Take Away)';
+    }
+  }
+
+  function switchTab(tab) {
+    activeTab = tab;
+    const viewCarta = document.getElementById('view-carta');
+    const viewPedido = document.getElementById('view-pedido');
+    const btnCarta = document.getElementById('tab-btn-carta');
+    const btnPedido = document.getElementById('tab-btn-pedido');
+    const bottomCartPill = document.getElementById('bottom-cart-pill');
+
+    if (tab === 'carta') {
+      viewCarta.classList.remove('hidden');
+      viewPedido.classList.add('hidden');
+      btnCarta.className = 'flex flex-col items-center justify-center gap-0.5 transition-colors min-h-[44px] text-primary';
+      btnPedido.className = 'flex flex-col items-center justify-center gap-0.5 text-on-surface-variant hover:text-on-surface transition-colors min-h-[44px] relative';
+      if (bottomCartPill) bottomCartPill.classList.remove('hidden');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else {
+      viewCarta.classList.add('hidden');
+      viewPedido.classList.remove('hidden');
+      btnPedido.className = 'flex flex-col items-center justify-center gap-0.5 transition-colors min-h-[44px] relative text-primary';
+      btnCarta.className = 'flex flex-col items-center justify-center gap-0.5 text-on-surface-variant hover:text-on-surface transition-colors min-h-[44px]';
+      if (bottomCartPill) bottomCartPill.classList.add('hidden');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      renderCartView();
+    }
+  }
+
+  function addToCart(title, price) {
+    const existing = cart.find(item => item.title === title);
+    if (existing) {
+      existing.qty += 1;
+    } else {
+      cart.push({ title, price, qty: 1 });
+    }
+    updateCartUI();
+    
+    // Feedback visual sutil
+    const pill = document.getElementById('bottom-cart-pill');
+    if (pill) {
+      pill.classList.add('scale-95');
+      setTimeout(() => pill.classList.remove('scale-95'), 120);
+    }
+  }
+
+  function increaseQty(index) {
+    if (cart[index]) {
+      cart[index].qty += 1;
+      updateCartUI();
+      renderCartView();
+    }
+  }
+
+  function decreaseQty(index) {
+    if (cart[index]) {
+      if (cart[index].qty > 1) {
+        cart[index].qty -= 1;
+      } else {
+        cart.splice(index, 1);
+      }
+      updateCartUI();
+      renderCartView();
+    }
+  }
+
+  function clearCart() {
+    cart = [];
+    updateCartUI();
+    renderCartView();
+  }
+
+  function updateCartUI() {
+    const totalItems = cart.reduce((sum, item) => sum + item.qty, 0);
+    const totalPrice = cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
+
+    const navBadge = document.getElementById('nav-count-badge');
+    const pillBadge = document.getElementById('pill-count-badge');
+    const pillAmount = document.getElementById('pill-total-amount');
+    const subtotalText = document.getElementById('summary-subtotal');
+    const totalText = document.getElementById('summary-total');
+
+    if (navBadge) navBadge.textContent = totalItems;
+    if (pillBadge) pillBadge.textContent = totalItems;
+    if (pillAmount) pillAmount.textContent = '$' + totalPrice.toLocaleString('es-AR');
+    if (subtotalText) subtotalText.textContent = '$' + totalPrice.toLocaleString('es-AR');
+    if (totalText) totalText.textContent = '$' + totalPrice.toLocaleString('es-AR');
+  }
+
+  function renderCartView() {
+    const container = document.getElementById('cart-items-container');
+    if (!container) return;
+
+    if (cart.length === 0) {
+      container.innerHTML = `
+        <div class="py-12 px-4 text-center flex flex-col items-center justify-center bg-surface-container-low rounded-2xl border border-outline-variant/15 my-2">
+          <span class="material-symbols-outlined text-outline text-[48px] mb-2 opacity-60">shopping_basket</span>
+          <h4 class="font-headline-sm text-headline-sm text-on-surface">Tu pedido está vacío</h4>
+          <p class="font-body-sm text-body-sm text-on-surface-variant max-w-xs mt-1 mb-4">Explora la carta y agrega tus piezas y tapeos preferidos.</p>
+          <button onclick="switchTab('carta')" type="button" class="px-5 py-2.5 rounded-xl bg-primary-container text-on-primary-container font-label-md text-label-md flex items-center gap-1.5 shadow">
+            <span class="material-symbols-outlined text-[18px]">restaurant_menu</span>
+            <span>Explorar Menú</span>
+          </button>
+        </div>
+      `;
+      return;
+    }
+
+    let html = '';
+    cart.forEach((item, index) => {
+      const itemSubtotal = item.price * item.qty;
+      html += `
+        <div class="flex items-center justify-between p-3.5 rounded-xl bg-surface-container-low border border-outline-variant/15 gap-3">
+          <div class="flex flex-col flex-1 min-w-0">
+            <span class="font-headline-sm text-[15px] leading-snug text-on-surface truncate">${item.title}</span>
+            <span class="font-body-sm text-body-sm text-on-surface-variant">$${item.price.toLocaleString('es-AR')} c/u</span>
+            <span class="font-label-md text-label-md text-primary font-bold mt-0.5">$${itemSubtotal.toLocaleString('es-AR')}</span>
+          </div>
+          <div class="flex items-center gap-2 bg-surface-container-highest px-2 py-1 rounded-lg shrink-0">
+            <button onclick="decreaseQty(${index})" type="button" class="w-7 h-7 rounded-md bg-surface-container flex items-center justify-center text-on-surface hover:text-error active:scale-95">
+              <span class="material-symbols-outlined text-[16px]">${item.qty === 1 ? 'delete' : 'remove'}</span>
+            </button>
+            <span class="font-label-md text-label-md font-bold text-on-surface px-1.5 min-w-[20px] text-center">${item.qty}</span>
+            <button onclick="increaseQty(${index})" type="button" class="w-7 h-7 rounded-md bg-surface-container flex items-center justify-center text-on-surface hover:text-primary active:scale-95">
+              <span class="material-symbols-outlined text-[16px]">add</span>
+            </button>
+          </div>
+        </div>
+      `;
+    });
+
+    container.innerHTML = html;
+  }
+
+  function sendOrderViaWhatsApp() {
+    const errorMsg = document.getElementById('form-error-msg');
+    errorMsg.classList.add('hidden');
+    errorMsg.textContent = '';
+
+    if (cart.length === 0) {
+      errorMsg.textContent = 'Tu pedido está vacío. Por favor selecciona al menos un plato de la carta.';
+      errorMsg.classList.remove('hidden');
+      return;
+    }
+
+    const nameInput = document.getElementById('customer-name');
+    const phoneInput = document.getElementById('customer-phone');
+    const addressInput = document.getElementById('customer-address');
+    const notesInput = document.getElementById('customer-notes');
+    const selectedPay = document.querySelector('input[name="payment-method"]:checked');
+
+    const name = nameInput ? nameInput.value.trim() : '';
+    const phone = phoneInput ? phoneInput.value.trim() : '';
+    const address = addressInput ? addressInput.value.trim() : '';
+    const notes = notesInput ? notesInput.value.trim() : '';
+    const payment = selectedPay ? selectedPay.value : 'Efectivo';
+
+    // Validaciones
+    if (!name) {
+      errorMsg.textContent = 'Por favor ingresa tu Nombre y Apellido para continuar.';
+      errorMsg.classList.remove('hidden');
+      nameInput.focus();
+      return;
+    }
+
+    if (!phone) {
+      errorMsg.textContent = 'Por favor ingresa un teléfono de contacto.';
+      errorMsg.classList.remove('hidden');
+      phoneInput.focus();
+      return;
+    }
+
+    if (orderMode === 'delivery' && !address) {
+      errorMsg.textContent = 'Para envíos por delivery, ingresa tu dirección en Tandil (calle, altura, piso/depto).';
+      errorMsg.classList.remove('hidden');
+      addressInput.focus();
+      return;
+    }
+
+    const totalPrice = cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
+
+    // Armado estructurado del mensaje WhatsApp
+    let msg = `¡Hola SushiFan Tandil! Quiero realizar el siguiente pedido:\n\n`;
+    msg += `• *Cliente:* ${name}\n`;
+    msg += `• *Teléfono:* ${phone}\n`;
+    if (orderMode === 'delivery') {
+      msg += `• *Modalidad:* Delivery a ${address}\n`;
+    } else {
+      msg += `• *Modalidad:* Retiro en Local (Take Away - Centro)\n`;
+    }
+    msg += `• *Método de Pago:* ${payment}\n`;
+    if (notes) {
+      msg += `• *Aclaraciones:* ${notes}\n`;
+    }
+    msg += `\n*Detalle del Pedido:*\n`;
+
+    cart.forEach(item => {
+      const sub = (item.price * item.qty).toLocaleString('es-AR');
+      msg += `  - ${item.qty}x ${item.title} ($${sub})\n`;
+    });
+
+    msg += `\n*TOTAL A ABONAR: $${totalPrice.toLocaleString('es-AR')}*`;
+
+    const encodedMsg = encodeURIComponent(msg);
+    window.open(`https://wa.me/5492284606363?text=${encodedMsg}`, '_blank');
+  }
+
+  // Inicialización básica
+  updateCartUI();
+</script>
+
+</body></html>

@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Editor de Carta</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,sans-serif;background:#f4f4f5;color:#18181b}
+header{background:#111827;color:white;padding:18px 24px;display:flex;justify-content:space-between;align-items:center;gap:15px;position:sticky;top:0;z-index:10}
+header h1{font-size:20px;margin:0}
+button{border:0;border-radius:8px;padding:10px 14px;cursor:pointer;font-weight:600}
+.primary{background:#22c55e;color:white}
+.secondary{background:#374151;color:white}
+.danger{background:#ef4444;color:white}
+.container{max-width:1100px;margin:25px auto;padding:0 16px}
+.notice{background:#fff;border:1px solid #ddd;border-radius:12px;padding:15px;margin-bottom:20px}
+.search{width:100%;padding:13px;border:1px solid #d4d4d8;border-radius:10px;margin-bottom:18px;font-size:15px}
+.product{background:white;border:1px solid #ddd;border-radius:14px;padding:18px;margin-bottom:15px}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+label{font-size:13px;font-weight:bold;color:#52525b}
+input,textarea{width:100%;margin-top:5px;padding:10px;border:1px solid #d4d4d8;border-radius:8px;font:inherit}
+textarea{min-height:70px;resize:vertical}
+.actions{display:flex;justify-content:flex-end;gap:8px;margin-top:14px}
+#status{margin-top:10px;font-weight:bold}
+@media(max-width:700px){.grid{grid-template-columns:1fr}header{flex-direction:column;align-items:stretch}}
+</style>
+</head>
+<body>
+
+<header>
+    <h1>🍣 Editor de Carta</h1>
+    <div>
+        <button class="secondary" onclick="recargar()">Recargar</button>
+        <button class="primary" onclick="guardar()">💾 Guardar cambios</button>
+    </div>
+</header>
+
+<div class="container">
+    <div class="notice">
+        <b>Editor del index.html</b><br>
+        Modificá los productos y presioná <b>Guardar cambios</b>. El servidor actualizará directamente el
+        <code>index.html</code>.
+        <div id="status"></div>
+    </div>
+
+    <input id="buscar" class="search" placeholder="Buscar producto..." oninput="filtrar()">
+
+    <div id="productos"></div>
+</div>
+
+<script>
+let htmlOriginal = '';
+let productos = [];
+
+async function cargar() {
+    setStatus('Cargando index.html...', false);
+
+    try {
+        const r = await fetch('index.html?_=' + Date.now(), {cache:'no-store'});
+        if (!r.ok) throw new Error('No se pudo cargar index.html');
+
+        htmlOriginal = await r.text();
+        analizar(htmlOriginal);
+
+        setStatus('Index cargado correctamente.', false);
+    } catch(e) {
+        setStatus('Error: ' + e.message, true);
+    }
+}
+
+function analizar(html) {
+    const doc = new DOMParser().parseFromString(html, 'text/html');
+    const botones = [...doc.querySelectorAll('[onclick*="addToCart"]')];
+
+    productos = botones.map((boton, i) => {
+        const onclick = boton.getAttribute('onclick') || '';
+        const match = onclick.match(/addToCart\(\s*(['"])(.*?)\1\s*,\s*([0-9.]+)/);
+
+        if (!match) return null;
+
+        const titulo = match[2];
+        const precio = match[3];
+
+        let contenedor = boton.closest('article, section, li, .product-card');
+        if (!contenedor) contenedor = boton.parentElement;
+
+        let descripcion = '';
+        let imagen = '';
+
+        if (contenedor) {
+            const img = contenedor.querySelector('img');
+            if (img) imagen = img.getAttribute('src') || '';
+
+            const textos = [...contenedor.querySelectorAll('p')];
+            const p = textos.find(x => !/^\$?\s*[\d.,]+$/.test(x.textContent.trim()));
+            if (p) descripcion = p.textContent.trim();
+        }
+
+        return {
+            id: i,
+            titulo,
+            precio,
+            descripcion,
+            imagen,
+            boton
+        };
+    }).filter(Boolean);
+
+    render();
+}
+
+function render(lista = productos) {
+    const root = document.getElementById('productos');
+
+    if (!lista.length) {
+        root.innerHTML = '<div class="notice">No se encontraron productos.</div>';
+        return;
+    }
+
+    root.innerHTML = lista.map((p) => `
+        <div class="product" data-id="${p.id}">
+            <div class="grid">
+                <div>
+                    <label>Nombre</label>
+                    <input data-field="titulo" value="${esc(p.titulo)}">
+                </div>
+                <div>
+                    <label>Precio</label>
+                    <input data-field="precio" type="number" value="${esc(p.precio)}">
+                </div>
+                <div>
+                    <label>Imagen</label>
+                    <input data-field="imagen" value="${esc(p.imagen)}">
+                </div>
+                <div>
+                    <label>Descripción</label>
+                    <textarea data-field="descripcion">${esc(p.descripcion)}</textarea>
+                </div>
+            </div>
+            <div class="actions">
+                <button class="danger" onclick="eliminar(${p.id})">Eliminar producto</button>
+            </div>
+        </div>
+    `).join('');
+}
+
+function sincronizar() {
+    document.querySelectorAll('.product').forEach(card => {
+        const id = Number(card.dataset.id);
+        const p = productos.find(x => x.id === id);
+        if (!p) return;
+
+        p.titulo = card.querySelector('[data-field="titulo"]').value;
+        p.precio = card.querySelector('[data-field="precio"]').value;
+        p.imagen = card.querySelector('[data-field="imagen"]').value;
+        p.descripcion = card.querySelector('[data-field="descripcion"]').value;
+    });
+}
+
+function eliminar(id) {
+    sincronizar();
+
+    const p = productos.find(x => x.id === id);
+    if (!p) return;
+
+    if (!confirm('¿Eliminar "' + p.titulo + '" del index.html?')) return;
+
+    p.eliminado = true;
+    render(productos.filter(x => !x.eliminado));
+}
+
+function filtrar() {
+    sincronizar();
+    const q = document.getElementById('buscar').value.toLowerCase();
+    render(productos.filter(p =>
+        !p.eliminado &&
+        (p.titulo.toLowerCase().includes(q) ||
+         p.descripcion.toLowerCase().includes(q))
+    ));
+}
+
+function construirHTML() {
+    sincronizar();
+
+    const doc = new DOMParser().parseFromString(htmlOriginal, 'text/html');
+    const botones = [...doc.querySelectorAll('[onclick*="addToCart"]')];
+
+    productos.forEach((p, i) => {
+        const boton = botones[p.id];
+        if (!boton) return;
+
+        if (p.eliminado) {
+            const bloque = boton.closest('article, li, .product-card');
+            if (bloque) bloque.remove();
+            else boton.remove();
+            return;
+        }
+
+        boton.setAttribute(
+            'onclick',
+            `addToCart(${JSON.stringify(p.titulo)}, ${Number(p.precio) || 0})`
+        );
+
+        let contenedor = boton.closest('article, section, li, .product-card');
+        if (!contenedor) contenedor = boton.parentElement;
+
+        if (!contenedor) return;
+
+        const h3 = contenedor.querySelector('h3');
+        if (h3) h3.textContent = p.titulo;
+
+        const img = contenedor.querySelector('img');
+        if (img && p.imagen) {
+            img.src = p.imagen;
+        }
+
+        const textos = [...contenedor.querySelectorAll('p')];
+        const descripcion = textos.find(x => !/^\$?\s*[\d.,]+$/.test(x.textContent.trim()));
+        if (descripcion && p.descripcion) {
+            descripcion.textContent = p.descripcion;
+        }
+
+        // Actualiza textos que contienen el precio.
+        contenedor.querySelectorAll('*').forEach(el => {
+            if (el.children.length === 0 && /[$]\s*[\d.,]+/.test(el.textContent)) {
+                el.textContent = el.textContent.replace(/[$]\s*[\d.,]+/, '$' + Number(p.precio || 0).toLocaleString('es-AR'));
+            }
+        });
+    });
+
+    return '<!DOCTYPE html>\\n' + doc.documentElement.outerHTML;
+}
+
+async function guardar() {
+    const html = construirHTML();
+
+    if (!confirm('¿Guardar estos cambios directamente en index.html?')) return;
+
+    setStatus('Guardando...', false);
+
+    try {
+        const r = await fetch('guardar.php', {
+            method: 'POST',
+            headers: {'Content-Type': 'text/html; charset=utf-8'},
+            body: html
+        });
+
+        const data = await r.json();
+
+        if (!r.ok || !data.ok) {
+            throw new Error(data.error || 'No se pudo guardar');
+        }
+
+        htmlOriginal = html;
+        setStatus('✅ Cambios guardados en index.html', false);
+    } catch(e) {
+        setStatus('❌ ' + e.message, true);
+    }
+}
+
+async function recargar() {
+    if (!confirm('¿Descartar cambios que todavía no guardaste?')) return;
+    await cargar();
+}
+
+function setStatus(text, error) {
+    const el = document.getElementById('status');
+    el.textContent = text;
+    el.style.color = error ? '#dc2626' : '#16a34a';
+}
+
+function esc(v) {
+    return String(v ?? '')
+        .replace(/&/g,'&amp;')
+        .replace(/"/g,'&quot;')
+        .replace(/</g,'&lt;')
+        .replace(/>/g,'&gt;');
+}
+
+cargar();
+</script>
+
+</body>
+</html>

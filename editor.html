@@ -32,15 +32,47 @@ textarea{min-height:70px;resize:vertical}
     <h1>🍣 Editor de Carta</h1>
     <div>
         <button class="secondary" onclick="recargar()">Recargar</button>
+        <button class="secondary" onclick="toggleConfig()">⚙️ Conexión GitHub</button>
         <button class="primary" onclick="guardar()">💾 Guardar cambios</button>
     </div>
 </header>
 
 <div class="container">
+    <div class="notice" id="configBox" style="display:none">
+        <b>Conexión con GitHub</b><br>
+        Estos datos se guardan solo en este navegador (nunca se suben al repo). El token necesita permiso
+        <code>Contents: Read and write</code> sobre este repositorio únicamente (creá uno
+        <a href="https://github.com/settings/personal-access-tokens/new" target="_blank">fine-grained</a>).
+        <div class="grid" style="margin-top:10px">
+            <div>
+                <label>Usuario/organización de GitHub</label>
+                <input id="ghOwner">
+            </div>
+            <div>
+                <label>Repositorio</label>
+                <input id="ghRepo">
+            </div>
+            <div>
+                <label>Rama</label>
+                <input id="ghBranch" value="main">
+            </div>
+            <div>
+                <label>Token (fine-grained)</label>
+                <input id="ghToken" type="password" placeholder="github_pat_...">
+            </div>
+        </div>
+        <label style="display:flex;align-items:center;gap:6px;margin-top:10px;font-weight:normal">
+            <input type="checkbox" id="ghRemember" style="width:auto;margin:0"> Recordar en este navegador
+        </label>
+        <div class="actions">
+            <button class="secondary" onclick="guardarConfig()">Guardar conexión</button>
+        </div>
+    </div>
+
     <div class="notice">
         <b>Editor del index.html</b><br>
-        Modificá los productos y presioná <b>Guardar cambios</b>. El servidor actualizará directamente el
-        <code>index.html</code>.
+        Modificá los productos y presioná <b>Guardar cambios</b>. Se va a subir directamente a GitHub y
+        GitHub Pages va a tardar uno o dos minutos en actualizar el sitio.
         <div id="status"></div>
     </div>
 
@@ -232,28 +264,108 @@ function construirHTML() {
     return '<!DOCTYPE html>\\n' + doc.documentElement.outerHTML;
 }
 
+function toggleConfig() {
+    const box = document.getElementById('configBox');
+    box.style.display = box.style.display === 'none' ? 'block' : 'none';
+}
+
+function cargarConfigGuardada() {
+    const guardada = JSON.parse(localStorage.getItem('ghConfig') || 'null');
+    // Auto-detección a partir de la URL de GitHub Pages: usuario.github.io/repo/...
+    const partes = location.hostname.split('.');
+    const ownerDetectado = partes[0] !== 'www' ? partes[0] : '';
+    const repoDetectado = location.pathname.split('/').filter(Boolean)[0] || '';
+
+    document.getElementById('ghOwner').value = guardada?.owner || ownerDetectado;
+    document.getElementById('ghRepo').value = guardada?.repo || repoDetectado;
+    document.getElementById('ghBranch').value = guardada?.branch || 'main';
+    document.getElementById('ghToken').value = guardada?.token || '';
+    document.getElementById('ghRemember').checked = !!guardada;
+}
+
+function guardarConfig() {
+    const cfg = {
+        owner: document.getElementById('ghOwner').value.trim(),
+        repo: document.getElementById('ghRepo').value.trim(),
+        branch: document.getElementById('ghBranch').value.trim() || 'main',
+        token: document.getElementById('ghToken').value.trim()
+    };
+
+    if (document.getElementById('ghRemember').checked) {
+        localStorage.setItem('ghConfig', JSON.stringify(cfg));
+    } else {
+        localStorage.removeItem('ghConfig');
+    }
+
+    toggleConfig();
+    setStatus('Conexión guardada.', false);
+}
+
+function getConfig() {
+    return {
+        owner: document.getElementById('ghOwner').value.trim(),
+        repo: document.getElementById('ghRepo').value.trim(),
+        branch: document.getElementById('ghBranch').value.trim() || 'main',
+        token: document.getElementById('ghToken').value.trim()
+    };
+}
+
 async function guardar() {
     const html = construirHTML();
+    const cfg = getConfig();
 
-    if (!confirm('¿Guardar estos cambios directamente en index.html?')) return;
+    if (!cfg.owner || !cfg.repo || !cfg.token) {
+        toggleConfig();
+        setStatus('❌ Completá usuario, repositorio y token en "Conexión GitHub" antes de guardar.', true);
+        return;
+    }
 
-    setStatus('Guardando...', false);
+    if (!confirm('¿Guardar estos cambios directamente en index.html del repositorio?')) return;
+
+    setStatus('Guardando en GitHub...', false);
 
     try {
-        const r = await fetch('guardar.php', {
-            method: 'POST',
-            headers: {'Content-Type': 'text/html; charset=utf-8'},
-            body: html
+        const apiUrl = `https://api.github.com/repos/${cfg.owner}/${cfg.repo}/contents/index.html`;
+
+        // 1. Pedimos el sha actual del archivo (obligatorio para poder sobreescribirlo).
+        const getResp = await fetch(`${apiUrl}?ref=${cfg.branch}`, {
+            headers: {
+                Authorization: `Bearer ${cfg.token}`,
+                Accept: 'application/vnd.github+json'
+            }
+        });
+        const fileData = await getResp.json();
+
+        if (!getResp.ok) {
+            throw new Error(fileData.message || 'No se pudo leer index.html en GitHub');
+        }
+
+        // 2. Subimos el contenido nuevo en base64, referenciando ese sha.
+        const contenidoBase64 = btoa(unescape(encodeURIComponent(html)));
+
+        const putResp = await fetch(apiUrl, {
+            method: 'PUT',
+            headers: {
+                Authorization: `Bearer ${cfg.token}`,
+                Accept: 'application/vnd.github+json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                message: 'Actualizar carta desde el editor',
+                content: contenidoBase64,
+                sha: fileData.sha,
+                branch: cfg.branch
+            })
         });
 
-        const data = await r.json();
+        const putData = await putResp.json();
 
-        if (!r.ok || !data.ok) {
-            throw new Error(data.error || 'No se pudo guardar');
+        if (!putResp.ok) {
+            throw new Error(putData.message || 'No se pudo guardar en GitHub');
         }
 
         htmlOriginal = html;
-        setStatus('✅ Cambios guardados en index.html', false);
+        setStatus('✅ Cambios subidos a GitHub. La página tarda 1-2 min en actualizarse.', false);
     } catch(e) {
         setStatus('❌ ' + e.message, true);
     }
@@ -278,6 +390,7 @@ function esc(v) {
         .replace(/>/g,'&gt;');
 }
 
+cargarConfigGuardada();
 cargar();
 </script>
 
